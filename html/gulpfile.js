@@ -6,7 +6,7 @@
 var gulp = require('gulp');
 
 gulp.task('default', function () {
-    //gulp.start('html');
+    gulp.start('html');
     gulp.watch([
         './public_html/base/*.html',
         './public_html/pages/*.html'
@@ -17,10 +17,17 @@ gulp.task('default', function () {
 gulp.task('html', function() {
     var concat = require('gulp-concat');
     var html = './public_html/';
-    var files = ['index'];
+    
+    fs = require("fs");
+    files = fs.readdirSync('./public_html/pages/');
     
     for (i in files) {
-        var name = files[i];
+        var matches = files[i].match(/([0-9a-z_-]+).html/i);
+        var name = matches[1];
+        if (name === undefined) {
+            console.warn("Can't parse filename");
+            continue;
+        }
         gulp.src([
             html + 'base/header.html',
             html + 'pages/' + name + '.html', 
@@ -29,7 +36,6 @@ gulp.task('html', function() {
         .pipe(concat(name + '.html'))
         .pipe(gulp.dest(html));
     }
-    
     return true;
 });
 
