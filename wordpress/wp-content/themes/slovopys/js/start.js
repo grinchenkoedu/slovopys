@@ -11,7 +11,7 @@
     
 // on load.
 $(window).load(function() {
-    var footerFixer = new FooterFixer('footer', ['header', '.menu-main', '#content']);
+    var footerFixer = new FooterFixer('footer', ['header', '.menu-main', '#page_content']);
 
     // on resize footer fix.
     $(window).resize(function () {

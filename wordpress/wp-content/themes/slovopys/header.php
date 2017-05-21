@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        <a href="index.html" class="logo"></a>
+                        <a href="/" class="logo"></a>
                     </div>
                     <div class="col-md-8">
                         <div class="logo-big">
