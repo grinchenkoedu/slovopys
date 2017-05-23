@@ -7,7 +7,9 @@
  * @author Yevhen Matasar <matasar.ei@gmail.com>
  */
 
-/* theme init */
+///
+// Init theme.
+///
 add_action('wp_enqueue_scripts', 'sowp_theme_sns');
 add_action('init', 'sowp_theme_init');
 
@@ -61,18 +63,16 @@ function sowp_dependencies($message) {
     
     // Show notice about required plugins.
     foreach ($required as $plugin => $active) {
-        if (!$active) {
-            ?>
-                <div class="error notice">
-                    <p><?php _e("The {$plugin} plugin is required!", 'profi_realt'); ?></p>
-                </div>
-            <?php
-        }
+        if (!$active) { ?>
+            <div class="error notice">
+                <p><?php _e("The {$plugin} plugin is required!", 'slovopys'); ?></p>
+            </div>
+        <?php }
     }
 }
 
 /**
- * Init theme properties
+ * Init theme functions
  */
 function sowp_theme_init() {
     add_action('admin_notices', 'sowp_dependencies');
@@ -83,4 +83,80 @@ function sowp_theme_init() {
     
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(640, 335, true);
+}
+
+///
+// Theme options and settings page.
+///
+
+/**
+ * Add options page
+ */
+function sowp_add_options_page()
+{   
+   // This page will be under "Settings".
+   add_options_page(
+       'СловОпис', // page title.
+       'СловОпис', // menu title.
+       'manage_options', // user capability.
+       'sowp_theme_settings', //page uniq name.
+       'sowp_print_admin_page' // callback.
+   );
+}
+
+/**
+ * Print theme settings page
+ */
+function sowp_print_admin_page() { ?>
+    <div class="wrap">
+    <h1>СловОпис</h1>
+
+    <form method="post" action="options.php">
+        <?php settings_fields('sowp_settings_group'); ?>
+        <?php do_settings_sections('sowp_settings_group'); ?>
+        
+        <table class="form-table">
+            <tr valign="top">
+            <th scope="row">Facebook</th>
+            <td><input type="text" size="64" name="sowp_facebook" value="<?php echo esc_attr(get_option('sowp_facebook')); ?>" placeholder="http://" /></td>
+            </tr>
+            
+            <tr valign="top">
+            <th scope="row">YouTube</th>
+            <td><input type="text" size="64" name="sowp_youtube" value="<?php echo esc_attr(get_option('sowp_youtube')); ?>" placeholder="http://" /></td>
+            </tr>
+            
+            <tr valign="top">
+            <th scope="row">Instagram</th>
+            <td><input type="text" size="64" name="sowp_insta" value="<?php echo esc_attr(get_option('sowp_insta')); ?>" placeholder="http://" /></td>
+            </tr>
+            
+            <tr valign="top">
+            <th scope="row">Google+</th>
+            <td><input type="text" size="64" name="sowp_gplus" value="<?php echo esc_attr(get_option('sowp_gplus')); ?>" placeholder="http://" /></td>
+            </tr>
+        </table>
+        
+        <?php submit_button(); ?>
+    </form>
+    </div>
+<?php }
+
+/**
+ * Register theme settings
+ */
+function sowp_admin_init() {
+    // Social networks urls.
+    register_setting('sowp_settings_group', 'sowp_facebook');
+    register_setting('sowp_settings_group', 'sowp_youtube');
+    register_setting('sowp_settings_group', 'sowp_insta');
+    register_setting('sowp_settings_group', 'sowp_gplus');
+}
+
+///
+// Init theme settings.
+///
+add_action('admin_init', 'sowp_admin_init');
+if (is_admin()) {
+    add_action('admin_menu', 'sowp_add_options_page');
 }

@@ -153,6 +153,22 @@ header .grinchenko {
     font-weight: 300;
 }
 
+.category-title {
+    display: inline-block;
+    color: #000;
+    font-size: 1.3em;
+    padding-top: 15px;
+}
+
+.category-title:hover {
+    color: #6D3A60;
+    text-decoration: none;
+}
+
+.category-title:first-of-type {
+    padding-top: 25px;
+}
+
 footer {
     background: #4C2741;
     margin-top: 50px;
@@ -195,6 +211,16 @@ footer .copyright {
     text-align: center;
     color: #FFFFFF;
     padding: 5px 0 10px;
+}
+
+footer .copyright a {
+    color: #FFF;
+}
+
+footer .copyright a:hover,
+.social-links li a:hover {
+    filter: invert(50%);
+    text-decoration: none;
 }
 
 .container.with-sidebar {
@@ -394,4 +420,12 @@ footer .copyright {
 
 .fixed {
     position: fixed;
+}
+
+/* wp admin page fix */
+#main_menu > span {
+    display: table-cell !important;
+    width: 0.01%;
+    position: relative;
+    float:none;
 }
