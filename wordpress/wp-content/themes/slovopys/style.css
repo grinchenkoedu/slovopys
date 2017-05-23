@@ -13,9 +13,17 @@ body {
     font-size: 16pt;
 }
 
-h1 {
+h1, .category-title {
+    display: block;
     font-weight: 400;
     padding: 20px 0 10px 0;
+    font-size: 1.5em;
+    color: #000;
+}
+
+.category-title:hover {
+    color: #4C2741;
+    text-decoration: none;
 }
 
 header .container {
@@ -229,7 +237,7 @@ footer .copyright a:hover,
 
 .sidenav {
     padding-left: 0;
-    padding-top: 100px;
+    padding-top: 95px;
 }
 
 .sidenav ul {
@@ -237,7 +245,8 @@ footer .copyright a:hover,
     padding: 0;
 }
 
-.sidenav a {
+.sidenav a, 
+.sidenav span {
     display: block;
     width: 100%;
     background: #6D3A60;
@@ -245,6 +254,8 @@ footer .copyright a:hover,
     font-size: 0.7em;
     padding: 15px 20px;
 }
+.sidenav span, .sidenav .active { background: #C1B710; color: black; }
+
 
 .sidenav a:hover {
     background: #C1B710;
@@ -331,22 +342,15 @@ footer .copyright a:hover,
     padding: 50px 0 10px;
 }
 
-.pagination ul {
-    list-style: none;
-}
-
-.pagination li {
-    display: inline-block;
-}
-
-.pagination a {
+.pagination a,
+span.current {
     color:#000;
     font-weight: 400;
     padding: 10px;
 }
 
 .pagination a:hover,
-.pagination a.current {
+.pagination span.current {
     color:#C1B710;
     text-decoration: none;
 }
@@ -377,6 +381,11 @@ footer .copyright a:hover,
     font-size: 0.9em;
 }
 
+.blog h1 {
+    padding-top: 0;
+    font-size: 1.6em;
+}
+
 .blog a {
     color: #6D3A60;
 }
@@ -387,7 +396,7 @@ footer .copyright a:hover,
 
 .blog-title {
     display: block;
-    padding: 35px 0 10px;
+    padding: 20px 0 10px;
     font-size: 1.4em;
     font-weight: 400;
     color: #000;
@@ -399,7 +408,7 @@ footer .copyright a:hover,
 }
 
 .blog-items {
-    padding: 55px 60px 55px 40px;
+    padding: 0px 60px 55px 40px;
 }
 
 .blog-image img {
@@ -420,6 +429,105 @@ footer .copyright a:hover,
 
 .fixed {
     position: fixed;
+}
+
+/* breadcrumbs */
+.breadcrumbs {
+    padding: 15px 0 5px 40px;
+    font-size: 0.8em;
+}
+
+.breadcrumbs-item {
+    display: inline;
+    padding-right: 5px;
+}
+
+.breadcrumbs-item:after {
+    content: " > ";
+    padding-left: 5px;
+}
+
+.breadcrumbs-item:last-child {
+    padding: 0;
+}
+
+.breadcrumbs-item:last-child:after {
+    display: none;
+}
+
+.breadcrumbs-item a {
+    color: #4C2741;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content-category .video-wrapper {
+    padding-bottom: 40%;
+    width: 640px;
+}
+
+@media screen and (max-width: 1024px) {
+    
+    .container.with-sidebar {
+        padding: 0 10px;    
+    }
+    
+    .breadcrumbs {
+        padding: 10px 0;
+    }
+    
+    .sidenav {
+        padding: 10px 15px;
+    }
+    
+    .sidenav:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .sidenav li {
+        display: block;
+        float: left;
+    }
+    
+    .sidenav a, .sidenav span {
+        padding: 15px 10px;
+    }
+    
+    .blog-items {
+        padding: 0;
+    }
+    
+    .blog-title {
+        padding: 15px 0 10px;
+    }    
+}
+
+@media screen and (max-width: 768px) {
+    
+    .blog-image img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .blog-title {
+        font-size: 1em;
+    }
+    
 }
 
 /* wp admin page fix */

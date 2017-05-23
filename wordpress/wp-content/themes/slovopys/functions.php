@@ -3,8 +3,7 @@
  * Slovopys theme functions
  * 
  * @package slovopys_wp
- * @subpackage slovopys_wp_theme
- * @author Yevhen Matasar <matasar.ei@gmail.com>
+ * @copyright (c) 2017, Yevhen Matasar <matasar.ei@gmail.com>
  */
 
 ///
@@ -47,7 +46,7 @@ function sowp_theme_sns() {
  * Check dependencies
  * @param string $message
  */
-function sowp_dependencies($message) {
+function sowp_dependencies() {
     // false means not installed or not active
     $required = [
         'advanced-custom-fields' => false
@@ -72,7 +71,7 @@ function sowp_dependencies($message) {
 }
 
 /**
- * Init theme functions
+ * Init theme properties
  */
 function sowp_theme_init() {
     add_action('admin_notices', 'sowp_dependencies');
@@ -84,6 +83,65 @@ function sowp_theme_init() {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(640, 335, true);
 }
+
+/**
+ * Get categories
+ * @param object $category Category instance
+ * @param object $parent Category instance
+ * @return array
+ */
+function sowp_get_categories($category, $parent = null) {
+    $categories = get_categories(['parent' => $parent ?  $parent->term_id : $category->term_id]);
+    if (!$categories) {
+        return get_categories();
+    }
+    return $categories;
+}
+
+/**
+ * Get posts first letters list
+ * @global object $wpdb DB API
+ * @param object $category Category instance
+ * @return array|stdClass Letters list
+ */
+function sowp_get_first_letters($category) {
+    global $wpdb;
+    $sql = "SELECT LEFT(tb_post.post_title, 1) AS name
+              FROM {$wpdb->posts} AS tb_post
+        INNER JOIN {$wpdb->term_relationships} AS tb_term
+                ON tb_term.object_id = tb_post.id
+             WHERE tb_term.term_taxonomy_id = %s
+          GROUP BY name
+          ORDER BY name";
+    $query = $wpdb->prepare($sql, $category->term_id);
+    $items = $wpdb->get_results($query);
+    foreach ($items as $item) {
+        $item->name = mb_strtolower($item->name);
+        $item->href = "/category/{$category->slug}/?letter={$item->name}";
+    }
+    return $items;
+}
+
+/**
+ * Filter posts with first letter
+ * @global type $wpdb
+ * @param string $where
+ * @param type $wp_query
+ * @return string
+ */
+function sowp_first_letter_filter($where) {
+    global $wpdb;
+    
+    $letter = filter_input(INPUT_GET, 'letter', FILTER_SANITIZE_STRING);
+    if (empty($letter)) {
+        return $where;
+    }
+        
+    $where .= " AND {$wpdb->posts}.post_title LIKE '" . esc_sql($wpdb->esc_like($letter)) . "%'";
+    return $where;
+}
+add_filter('posts_where', 'sowp_first_letter_filter');
+
 
 ///
 // Theme options and settings page.
