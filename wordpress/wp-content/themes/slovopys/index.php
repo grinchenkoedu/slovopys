@@ -12,7 +12,7 @@ $category = $categories[count($categories) - 1];
 $parent = $category->parent ? get_category($category->parent): null;
 ?>
 <div class="container with-sidebar" id="page_content">
-    <div class="col-md-3 col-lg-2 sidenav">
+    <div class="col-lg-2 sidenav sidenav-md-full">
         <nav>
             <ul>
                 <?php foreach (sowp_get_categories($category, $parent) as $cat): ?>
@@ -25,7 +25,7 @@ $parent = $category->parent ? get_category($category->parent): null;
             </ul>
         </nav>
     </div>
-    <div class="col-md-9 col-lg-10">
+    <div class="col-lg-10">
         <?php if (have_posts()) : ?>
             <nav class="breadcrumbs">
                 <div class="breadcrumbs-item" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
@@ -62,18 +62,29 @@ $parent = $category->parent ? get_category($category->parent): null;
                     <?php the_content(); ?>
                 </article>
         
-                <?php $prev = get_previous_post(); $next = get_next_post(); ?>
-                <?php if ($prev || $next): ?>
-                    <div class="related">
-                        <?php if ($next): ?>
-                        <div class="related-post">
-                            <a class="related-post-title" href="#">
-                                <?php echo $next->post_title; ?>
-                            </a>
-                        </div>
+                <div class="related">
+                    <?php $related = [get_previous_post(), get_next_post()]; ?>
+                    <?php foreach ($related as $post): ?>
+                        <?php if ($post): ?>
+                            <div class="related-post">
+                                <?php if (has_post_thumbnail($post)): ?>
+                                    <a class="related-post-image" href="<?php echo get_permalink($post) ?>">
+                                        <?php echo get_the_post_thumbnail($post, 'thumbnail'); ?>
+                                    </a>
+                                <?php else: ?>
+                                    <?php $post_category = sowp_get_post_category($post); ?>
+                                    <a class="related-post-category" href="/category/<?php echo $post_category->slug; ?>">
+                                        <?php echo $post_category->name; ?>
+                                    </a>
+                                <?php endif; ?>
+                                <a class="related-post-title" href="<?php echo get_permalink($post) ?>">
+                                    <?php echo $post->post_title; ?>
+                                </a>
+                                <div class="related-post-excerpt"><?php echo wp_trim_words($post->post_content, 30); ?></div>
+                            </div>
                         <?php endif; ?>
-                    </div>
-                <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
                 
             </div>
         <?php endwhile; ?>

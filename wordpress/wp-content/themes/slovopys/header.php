@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<!--
-@author hc
-@since 3 трав. 2017
---> 
+<!DOCTYPE html> 
 <html>
     <head>
         <meta charset="<?php bloginfo('charset'); ?>">
@@ -30,10 +26,10 @@
         <header>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 hidden-xs">
                         <a href="/" class="logo"></a>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-12">
                         <div class="logo-big">
                             <div class="slogan">
                                 Українська - сучасно і своєчасно!
@@ -49,6 +45,7 @@
         </header>
         <div class="container menu-main" id="menu_main">
             <nav>
+                <div class="mobile-trigger">Меню</div>
                 <?php wp_nav_menu([
                     'theme_location' => 'header-menu', 
                     'container' => 'ul',

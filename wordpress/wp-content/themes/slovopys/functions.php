@@ -21,6 +21,7 @@ function sowp_theme_sns() {
     // general styles.
     wp_enqueue_style('bootstrap', "{$template_uri}/css/bootstrap.css");
     wp_enqueue_style('bootstrap-theme', "{$template_uri}/css/bootstrap-theme.css");
+    wp_enqueue_style('owl-carousel', "{$template_uri}/css/owl.carousel.min.css");
     
     // fonts and icons.
     wp_enqueue_style('font-roboto', '//fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic,latin');
@@ -37,6 +38,7 @@ function sowp_theme_sns() {
     // general scripts.
     wp_enqueue_script('jquery');
     wp_enqueue_script('bootstrap', "{$template_uri}/js/bootstrap.min.js");
+    wp_enqueue_script('owl-carousel', "{$template_uri}/js/owl.carousel.min.js");
     
     // custom scripts.
     wp_enqueue_script('start', "{$template_uri}/js/start.js", [], false, true); //in footer.
@@ -96,6 +98,20 @@ function sowp_get_categories($category, $parent = null) {
         return get_categories();
     }
     return $categories;
+}
+
+/**
+ * Get post category
+ * @param int|object $post Post id or post instance
+ * @param bool $top Top category
+ * @return object
+ */
+function sowp_get_post_category($post, $top = true) {
+    $categories = get_the_category($post->ID);
+    if ($top) {
+        return array_shift($categories);
+    }
+    return array_pop($categories);
 }
 
 /**
