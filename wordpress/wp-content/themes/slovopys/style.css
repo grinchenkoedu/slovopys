@@ -833,7 +833,9 @@ span.current {
         width: 44px;
         padding: 4px 0;
     }
-    
+
+    .news-carousel .description:hover .excerpt { display: none; }
+
     .pagination { padding: 10px 0 10px; }
     .pagination > nav { padding: 0; }
 }
@@ -854,10 +856,6 @@ span.current {
         bottom: 25px;
         right: 15px;
         text-align: right;
-    }
-
-    .news-carousel .excerpt {
-        display: none;
     }
     
     .news-carousel .owl-nav {

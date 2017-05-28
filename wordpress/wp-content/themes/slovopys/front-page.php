@@ -38,8 +38,7 @@ $latest = get_posts([
                                 <a class="category-thumbnail" href="/category/<?php echo $child->slug; ?>/">
                                     <?php $image = get_field('thumbnail', "category_{$child->term_id}"); ?>
                                     <?php if ($image): ?>
-                                        <?php var_dump($image); ?>
-                                        <img src="img/thumbnail.jpg" alt="<?php echo $child->name; ?>">
+                                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $child->name; ?>">
                                     <?php endif; ?>
                                     <?php if (!get_field('thumnbail_title', "category_{$child->term_id}")): ?>
                                         <div class="thumbnail-text">

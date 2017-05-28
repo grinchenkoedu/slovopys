@@ -81,12 +81,11 @@ $categories = sowp_get_categories($category, $parent);
         </div>
     </div>
     
-    <nav class="pagination">
         <?php the_posts_pagination([
             'screen_reader_text' => ' ', //__('Posts navigation')
             'mid_size' => 2
         ]); ?>
-    </nav>
+    
 </div>
 
 <?php get_footer(); ?>
