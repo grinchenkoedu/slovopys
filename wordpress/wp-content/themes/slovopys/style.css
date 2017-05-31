@@ -730,21 +730,6 @@ a.resource-url--category {
     .blog-items { padding: 0; }
     .blog-title { padding: 15px 0 10px; }
     
-    /*
-    .menu-main,
-    .menu-main ul {
-        display: block;
-        padding: 0;
-        margin: 0 auto;
-    }
-    
-    .menu-main li {
-        display: inline-block;
-        width: auto;
-        padding: 10px 0px 10px 20px;
-    }
-    */
-    
     header .logo-big .slogan {
         right: -10px;
     }
@@ -813,17 +798,46 @@ a.resource-url--category {
         border-top: none;
     }
     
-    .menu-main:hover .mobile-trigger { color:#C1B710; }
+    .menu-main:hover .mobile-trigger,
+    .menu-main.mobile-opened .mobile-trigger { 
+        color:#C1B710; 
+    }
+    
     .menu-main:hover .mobile-trigger:before,
-    .menu-main:hover .mobile-trigger:after {
+    .menu-main:hover .mobile-trigger:after,
+    .menu-main.mobile-opened .mobile-trigger:before,
+    .menu-main.mobile-opened .mobile-trigger:after {
         border-color: #C1B710;
     }
-    .menu-main:hover ul { 
+    .menu-main:hover ul,
+    .menu-main.mobile-opened ul { 
         display: block;
         padding: 0 15px;
         margin: 0;
     }
-    .menu-main:hover li { 
+    .menu-main.mobile-closed ul { display: none; }
+    
+    .menu-main.mobile-opened .mobile-trigger:before {
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        border-bottom: none;
+        top: 32px;
+        right: 20px;
+        width: 29px;
+    }
+    
+    .menu-main.mobile-opened .mobile-trigger:after {
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(135deg);
+        width: 29px;
+        right: 15px;
+        top: 32px;
+    }
+    
+    .menu-main:hover li,
+    .menu-main.mobile-opened li { 
         display: inline-block; 
         width: auto;
         text-align: left;
@@ -911,7 +925,8 @@ a.resource-url--category {
     
     .menu-main { width: 100%; }
     
-    .menu-main:hover li { 
+    .menu-main:hover li,
+    .menu-main.mobile-opened li { 
         display: block;
     }
     .menu-main a { padding: 10px 15px 15px 5px; }

@@ -45,7 +45,7 @@
         </header>
         <div class="container menu-main" id="menu_main">
             <nav>
-                <div class="mobile-trigger">Меню</div>
+                <div class="mobile-trigger" id="main_menu_trigger">Меню</div>
                 <?php wp_nav_menu([
                     'theme_location' => 'header-menu', 
                     'container' => 'ul',

@@ -8,20 +8,9 @@
  * @returns {undefined}
  */
 (function($) {
-    
-// on load.
+
 $(window).load(function() {
-    var footerFixer = new FooterFixer('footer', ['header', '.menu-main', '#page_content']);
-
-    // on resize footer fix.
-    $(window).resize(function () {
-        footerFixer.fix();
-    }).trigger('resize');
-    
-    initScrollTop();
-});
-
-$(document).ready(function() {
+    // font page news carousel.
     $('.news-carousel').owlCarousel({
         loop: true,
         nav: true,
@@ -36,6 +25,19 @@ $(document).ready(function() {
             }
         }
     });
+    
+    var footerFixer = new FooterFixer('footer', ['header', '.menu-main', '#page_content']);
+
+    // on resize footer fix.
+    $(window).resize(function () {
+        footerFixer.fix();
+    }).trigger('resize');
+    
+    initScrollTop();
+});
+
+$(document).ready(function() {
+    initMainMenu();
 });
 
 /**
@@ -82,7 +84,22 @@ var FooterFixer = function(selector, contentSelectors) {
 };
 
 /**
- * 
+ * Main menu js handler
+ * @returns {undefined}
+ */
+var initMainMenu = function() {
+    var mainMenu = $('#menu_main');
+    $('#main_menu_trigger').click(function() {
+        if (mainMenu.hasClass('mobile-opened')) {
+            mainMenu.removeClass('mobile-opened').addClass('mobile-closed');
+        } else {
+            mainMenu.removeClass('mobile-closed').addClass('mobile-opened');
+        }
+    });
+};
+
+/**
+ * Scroll button handler
  * @returns {Boolean}
  */
 var initScrollTop = function() {
