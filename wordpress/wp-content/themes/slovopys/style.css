@@ -208,7 +208,7 @@ footer {
     display: block;
     width: 46px;
     height: 46px;
-    background: url(img/social.png)
+    background: url(img/social.png);
 }
 
 .social-links li a.facebook { background-position-x: 0; }
@@ -435,10 +435,28 @@ span.current {
     padding: 0px 60px 55px 40px;
 }
 
+
+.blog-image {
+    display: inline-block;
+    position: relative;
+}
+
 .blog-image img {
     display: block;
     width: 640px;
     max-width: 100%;
+}
+
+.blog-image.video-thumbnail:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    height: 45px;
+    width: 65px;
+    background: url(img/youtube_thumb_icon.png) no-repeat;
+    background-size: contain;
 }
 
 .blog-description {
@@ -864,6 +882,13 @@ a.resource-url--category {
 
 /* iPhone 6 Plus and smaller */
 @media screen and (max-width: 414px) {
+    
+    .blog-image.video-thumbnail:after {
+        left: 40%;
+        height: 40px;
+        width: 55px;
+    }
+    
     header .logo-big {
         width: 100%;
     }

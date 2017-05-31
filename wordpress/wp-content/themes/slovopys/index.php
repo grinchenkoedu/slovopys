@@ -50,14 +50,15 @@ $parent = $category->parent ? get_category($category->parent): null;
                         $has_images = preg_match("/\<img(?!.*class=.*emoji)/", get_the_content());
                         $resource_url = get_field('resource_url'); 
                         $resource_title = get_field('resource_title'); 
+                        $yotube_uniq = get_field('youtube_uniq');
                     ?>
-                    <?php if ($show_thumb === 'show' || ((!$show_thumb || $show_thumb === 'auto') && !$has_images)): ?>
+                    <?php if ($show_thumb === 'show' || ((!$show_thumb || $show_thumb === 'auto') && !$has_images) && !$yotube_uniq): ?>
                         <?php the_post_thumbnail('medium_large'); ?>
                     <?php endif; ?>
                     
-                    <?php if (get_field('youtube_uniq')): ?>
+                    <?php if ($yotube_uniq): ?>
                         <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/<?php the_field('youtube_uniq'); ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/<?php echo $yotube_uniq; ?>?rel=0" frameborder="0" allowfullscreen></iframe>
                         </div>
                     <?php endif; ?>
                     
