@@ -48,6 +48,8 @@ $parent = $category->parent ? get_category($category->parent): null;
                     <?php 
                         $show_thumb = get_field('content_show_thumbnail'); 
                         $has_images = preg_match("/\<img(?!.*class=.*emoji)/", get_the_content());
+                        $resource_url = get_field('resource_url'); 
+                        $resource_title = get_field('resource_title'); 
                     ?>
                     <?php if ($show_thumb === 'show' || ((!$show_thumb || $show_thumb === 'auto') && !$has_images)): ?>
                         <?php the_post_thumbnail('medium_large'); ?>
@@ -57,6 +59,13 @@ $parent = $category->parent ? get_category($category->parent): null;
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/<?php the_field('youtube_uniq'); ?>?rel=0" frameborder="0" allowfullscreen></iframe>
                         </div>
+                    <?php endif; ?>
+                    
+                    <?php if ($resource_url): ?>
+                        <div class="clearfix"></div>
+                        <a href="<?php echo $resource_url; ?>" class="resource-url" target="_blank">
+                            <?php echo $resource_title ? $resource_title : $resource_url; ?> &#9754;
+                        </a>
                     <?php endif; ?>
                     
                     <?php the_content(); ?>

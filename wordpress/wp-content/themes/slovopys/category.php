@@ -66,7 +66,7 @@ $categories = sowp_get_categories($category, $parent);
                         <?php the_title(); ?>
                     </a>
                     <?php if (has_post_thumbnail()): ?>
-                        <a class="blog-image" href="<?php echo get_permalink(); ?>">
+                        <a class="blog-image <?php if (get_field('youtube_uniq')): ?>video-thumbnail<?php endif; ?>" href="<?php echo get_permalink(); ?>">
                             <?php the_post_thumbnail(); ?>
                         </a>
                     <?php elseif(get_field('youtube_uniq')): ?>
@@ -74,6 +74,17 @@ $categories = sowp_get_categories($category, $parent);
                             <iframe src="https://www.youtube.com/embed/<?php the_field('youtube_uniq'); ?>?rel=0" frameborder="0" allowfullscreen></iframe>
                         </div>
                     <?php endif; ?>
+                    
+                    <?php
+                        $resource_url = get_field('resource_url'); 
+                        $resource_title = get_field('resource_title'); 
+                        if ($resource_url): ?>
+                        <div class="clearfix"></div>
+                        <a href="<?php echo $resource_url; ?>" class="resource-url resource-url--category" target="_blank">
+                            <?php echo $resource_title ? $resource_title : $resource_url; ?> &#9754;
+                        </a>
+                    <?php endif; ?>
+                        
                     <div class="blog-description"><?php the_excerpt(); ?></div>
                 </div>
             <?php endwhile; ?>

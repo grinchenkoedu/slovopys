@@ -212,7 +212,7 @@ footer {
 }
 
 .social-links li a.facebook { background-position-x: 0; }
-.social-links li a.vk { background-position-x: -47px; }
+.social-links li a.youtube { background-position-x: -47px; }
 .social-links li a.instagram { background-position-x: -94px; }
 .social-links li a.googleplus { background-position-x: -141px; }
 
@@ -483,6 +483,15 @@ span.current {
     color: #4C2741;
 }
 
+.video-thumbnail:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    
+}
+
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
@@ -653,6 +662,19 @@ span.current {
     text-align: center;
     background: #4C2741;
     padding: 2px 5px;
+}
+
+a.resource-url {
+    display: inline-block;
+    padding: 10px;
+    background: #4C2741;
+    color: #FFF;
+    font-weight: 500;
+    margin: 10px 0 20px;
+}
+
+a.resource-url--category {
+    margin: 25px 0 0;
 }
 
 @media screen and (max-width: 1199px) {

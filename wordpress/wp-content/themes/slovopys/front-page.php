@@ -8,8 +8,10 @@
 get_header();
 $categories = get_categories();
 $latest = get_posts([
-    'posts_per_page' => 6,
-    'meta_query' => [['key' => '_thumbnail_id']] // thumbnail required.
+    'numberposts' => 6,
+    'post_type' => [['key' => '_thumbnail_id']], // thumbnail required.
+    'meta_key' => 'news_main',
+    'meta_value' => true
 ]);
 ?>
 
