@@ -26,6 +26,24 @@ $(window).load(function() {
         }
     });
     
+    $('.partners-carousel').owlCarousel({
+        loop: false,
+        nav: true,
+        navText: ['<!-- prev -->','<!-- next -->'],
+        autoHeight:true,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    });
+    
     var footerFixer = new FooterFixer('footer', ['header', '.menu-main', '#page_content']);
 
     // on resize footer fix.

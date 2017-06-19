@@ -13,6 +13,9 @@ $latest = get_posts([
     'meta_key' => 'news_main',
     'meta_value' => true
 ]);
+$partners = get_posts([
+    'category' => 75
+]);
 ?>
 
 <div class="container page-main" id="page_content">
@@ -55,6 +58,14 @@ $latest = get_posts([
             <?php endif; ?>
         <?php endif; ?>
     <?php endforeach; ?>
+    
+    <div class="partners-carousel owl-carousel">
+        <?php foreach ($partners as $partner): ?>
+            <a class="partners-carousel-item" href="#">
+                <?php echo get_the_post_thumbnail($partner); ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>

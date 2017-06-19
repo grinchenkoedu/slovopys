@@ -614,6 +614,23 @@ span.current {
 }
 .owl-dot.active { background: #C1B710; }
 
+.partners-carousel {
+    padding: 25px 0 10px;
+}
+
+.partners-carousel-item {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+}
+
+.partners-carousel-item img {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: 100%;
+    height: 100px;
+}
+
 .mobile-trigger { display: none; }
 
 .scrolltop { 
