@@ -13,8 +13,11 @@ $latest = get_posts([
     'meta_key' => 'news_main',
     'meta_value' => true
 ]);
+$partners_category = get_category_by_slug('partners');
 $partners = get_posts([
-    'category' => 75
+    'category' => $partners_category->term_id,
+    'meta_key' => 'show_logo',
+    'meta_value' => true
 ]);
 ?>
 
@@ -59,12 +62,16 @@ $partners = get_posts([
         <?php endif; ?>
     <?php endforeach; ?>
     
+    <a class="category-title" href="/partners/"><?php echo $partners_category->name; ?></a>
     <div class="partners-carousel owl-carousel">
         <?php foreach ($partners as $partner): ?>
-            <a class="partners-carousel-item" href="#">
+            <a class="partners-carousel-item" href="/partners/#<?php echo $partner->post_name; ?>">
                 <?php echo get_the_post_thumbnail($partner); ?>
             </a>
         <?php endforeach; ?>
+    </div>
+    <div class="category-link">
+        <a href="/partners/" class="resource-url">Сторінка партнерів</a>
     </div>
 </div>
 

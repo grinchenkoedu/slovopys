@@ -21,6 +21,8 @@ h1, .category-title {
     color: #000;
 }
 
+.category-title--slim { margin: 0; }
+
 .category-title:hover {
     color: #4C2741;
     text-decoration: none;
@@ -105,7 +107,7 @@ header .grinchenko {
 }
 
 .menu-main a {
-    font-size: 0.65em;
+    font-size: 0.7em;
     line-height: 1.5em;
     color: #FFFFFF;
     display: block;
@@ -176,6 +178,13 @@ header .grinchenko {
 
 .category-title:first-of-type {
     padding-top: 10px;
+}
+
+.category-link { text-align: center; }
+.category-link a,
+.category-link a.resource-url {
+    margin: 20px 0 10px;
+    padding: 5px 15px;
 }
 
 footer {
@@ -252,7 +261,7 @@ footer .copyright a:hover,
     width: 100%;
     background: #6D3A60;
     color: #FFF;
-    font-size: 0.7em;
+    font-size: 0.8em;
     padding: 15px 20px;
 }
 .sidenav span, .sidenav .active { background: #C1B710; color: black; }
@@ -479,6 +488,8 @@ span.current {
     font-size: 0.8em;
 }
 
+.breadcrumbs--slim { padding: 10px 0; }
+
 .breadcrumbs-item {
     display: inline;
     padding-right: 5px;
@@ -629,6 +640,49 @@ span.current {
     width: auto !important;
     max-width: 100%;
     height: 100px;
+}
+
+.partners-list {
+    
+}
+
+.partners-item {
+    padding: 20px 0 15px;
+}
+
+.partners-item-image {
+    display: block;
+    text-align: center;
+}
+
+.partners-item-image img {
+    display: inline-block;
+    width: auto;
+    max-height: 130px;
+}
+
+.partners-item-description h2 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.partners-item-text { padding-bottom: 15px; }
+a.resource-url.resource-url--partners {
+    margin: 0 0 15px;
+    padding: 5px 8px;
+    font-size: 0.9em;
+}
+
+.partners-item-title {
+    color: #4C2741;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.partners-item-title:hover {
+    cursor: text;
+    color: #4C2741;
+    text-decoration: none;
 }
 
 .mobile-trigger { display: none; }

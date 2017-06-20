@@ -15,7 +15,10 @@ $(window).load(function() {
         loop: true,
         nav: true,
         navText: ['<!-- prev -->','<!-- next -->'],
-        autoHeight:true,
+        autoHeight: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
         responsive:{
             0:{
                 items:1
@@ -28,9 +31,10 @@ $(window).load(function() {
     
     $('.partners-carousel').owlCarousel({
         loop: false,
-        nav: true,
         navText: ['<!-- prev -->','<!-- next -->'],
-        autoHeight:true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
         responsive:{
             0:{
                 items:2

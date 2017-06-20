@@ -21,6 +21,9 @@
             <div class="copyright">
                 <a href="http://astudia.kubg.edu.ua/">© Астудія</a>
             </div>
+            <div class="footer-custom">
+                <?php echo get_option('sowp_footer'); ?>
+            </div>
         </div>
     </footer>
     </body>

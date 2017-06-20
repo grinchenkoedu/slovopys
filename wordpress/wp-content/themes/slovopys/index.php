@@ -84,7 +84,7 @@ $parent = $category->parent ? get_category($category->parent): null;
                                 <?php else: ?>
                                     <?php $post_category = sowp_get_post_category($post); ?>
                                     <a class="related-post-category" href="/category/<?php echo $post_category->slug; ?>">
-                                        <?php echo $post_category->name; ?>
+                                        <?php echo empty($post_category->name) ? "СловОпис" : $post_category->name; ?>
                                     </a>
                                 <?php endif; ?>
                                 <a class="related-post-title" href="<?php echo get_permalink($post) ?>">
