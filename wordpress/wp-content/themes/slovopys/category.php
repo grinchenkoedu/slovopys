@@ -5,13 +5,14 @@
  * @package slovopys_wp
  * @copyright (c) 2017, Yevhen Matasar <matasar.ei@gmail.com>
  */
-get_header(); 
-
-global $wp_query;
-
 $category = get_queried_object();
 $parent = $category->parent ? get_category($category->parent): null;
 $categories = sowp_get_categories($category, $parent);
+
+if ($category->slug === 'partners') {
+    wp_redirect("/partners/");
+}
+get_header(); 
 ?>
 
 <div class="container with-sidebar content-category" id="page_content">

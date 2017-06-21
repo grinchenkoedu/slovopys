@@ -17,11 +17,13 @@ $partners = get_posts([
         <nav>
             <ul>
                 <?php foreach (sowp_get_categories($category, $parent) as $cat): ?>
-                    <li>
-                        <a href="/category/<?php echo $cat->slug; ?>/" <?php if ($cat->term_id == $category->term_id): ?>class="active"<?php endif; ?>>
-                            <?php echo $cat->name; ?>
-                        </a>
-                    </li>
+                    <?php if ($cat->slug !== 'partners'): ?>
+                        <li>
+                            <a href="/category/<?php echo $cat->slug; ?>/" <?php if ($cat->term_id == $category->term_id): ?>class="active"<?php endif; ?>>
+                                <?php echo $cat->name; ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
         </nav>
