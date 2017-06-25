@@ -73,7 +73,7 @@ $parent = $category->parent ? get_category($category->parent): null;
                 </article>
         
                 <div class="related">
-                    <?php $related = [get_previous_post(), get_next_post()]; ?>
+                    <?php $related = [get_previous_post(true), get_next_post(true)]; ?>
                     <?php foreach ($related as $post): ?>
                         <?php if ($post): ?>
                             <div class="related-post">

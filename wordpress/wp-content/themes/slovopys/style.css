@@ -80,7 +80,7 @@ header .grinchenko {
 }
 
 .menu-main {
-    background: #6D3A60;
+    background: #9E9E9E;
     padding: 0;
     display: table;
 }
@@ -102,7 +102,12 @@ header .grinchenko {
     width: 1%;
 }
 
-.menu-main li:hover {
+.menu-main li:first-child {
+    background: #67AAE5;
+}
+
+.menu-main li:hover,
+.menu-main li.current-menu-item {
     background: #C1B710;
 }
 
@@ -114,7 +119,8 @@ header .grinchenko {
     padding: 15px 5px;
 }
 
-.menu-main a:hover {
+.menu-main a:hover,
+.menu-main .current-menu-item a {
     text-decoration: none;
     color: #000000;
 }
@@ -129,7 +135,7 @@ header .grinchenko {
 
 .category-thumbnail {
     display: block;
-    background: #4C2741;
+    background: #9d9d9d;
     height: 200px;
     width: 100%;
     position: relative;
@@ -871,14 +877,14 @@ a.resource-url--category {
     
     .menu-main:hover .mobile-trigger,
     .menu-main.mobile-opened .mobile-trigger { 
-        color:#C1B710; 
+        color:#000; 
     }
     
     .menu-main:hover .mobile-trigger:before,
     .menu-main:hover .mobile-trigger:after,
     .menu-main.mobile-opened .mobile-trigger:before,
     .menu-main.mobile-opened .mobile-trigger:after {
-        border-color: #C1B710;
+        border-color: #000;
     }
     .menu-main:hover ul,
     .menu-main.mobile-opened ul { 
@@ -914,7 +920,6 @@ a.resource-url--category {
         text-align: left;
     }
     .menu-main li:hover { background: #6D3A60; }
-    .menu-main a { padding: 0px 10px 20px 5px; }
     .menu-main li:hover a { color: #C1B710; }
     
     .breadcrumbs-item a { font-size: 0.9em; }
@@ -1000,7 +1005,7 @@ a.resource-url--category {
     .menu-main.mobile-opened li { 
         display: block;
     }
-    .menu-main a { padding: 10px 15px 15px 5px; }
+    .menu-main a { padding: 10px 15px 10px 5px; }
 }
 
 /* wp admin page fix */

@@ -30,10 +30,10 @@ function sowp_theme_sns() {
     wp_enqueue_style('style', get_stylesheet_uri());
     
     // legacy scripts.
-    /*wp_enqueue_script('html5', "{$template_uri}/js/html5.min.js");
+    wp_enqueue_script('html5', "{$template_uri}/js/html5.min.js");
     wp_script_add_data('html5', 'conditional', 'lt IE 9');
     wp_enqueue_script('respound', "{$template_uri}/js/respound.min.js");
-    wp_script_add_data('respound', 'conditional', 'lt IE 9');*/
+    wp_script_add_data('respound', 'conditional', 'lt IE 9');
     
     // general scripts.
     wp_enqueue_script('jquery');
