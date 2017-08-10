@@ -406,6 +406,7 @@ span.current {
 
 .blog img.alignleft {
     float:left;
+    margin: 30px 45px 30px 0;
 }
 
 .blog img.alignright {
