@@ -246,3 +246,28 @@ add_action('admin_init', 'sowp_admin_init');
 if (is_admin()) {
     add_action('admin_menu', 'sowp_add_options_page');
 }
+
+///
+// Security fix
+///
+// Block WP enum scans.
+if (!is_admin()) {
+    // default URL format.
+    if (preg_match('/author=([0-9]*)/i', filter_input(INPUT_SERVER, 'QUERY_STRING', FILTER_SANITIZE_STRING))) {
+        die();
+    }
+    add_filter('redirect_canonical', 'sowp_block_enum_scans', 10, 2);
+}
+function sowp_block_enum_scans($redirect, $request) {
+    // permalink URL format.
+    if (preg_match('/\?author=([0-9]*)(\/*)/i', $request)) {
+        die();
+    }
+    return $redirect;
+}
+
+// Hide Wordpress version from scanners.
+function sowp_remove_version() {
+    return '<meta name="generator" content="WordPress" />';
+}
+add_filter('the_generator', 'sowp_remove_version');

@@ -1,3 +1,13 @@
+# Debug
+#php_flag display_startup_errors on
+#php_flag display_errors on
+#php_flag html_errors on
+
+# Block WordPress files
+<FilesMatch "xmlrpc.php">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
