@@ -5,15 +5,20 @@
  * @package slovopys_wp
  * @copyright (c) 2017, Yevhen Matasar <matasar.ei@gmail.com>
  */
+
 get_header();
-$categories = get_categories();
+
+$categories = get_categories(['parent' => 0]);
+
 $latest = get_posts([
     'numberposts' => 6,
     'post_type' => [['key' => '_thumbnail_id']], // thumbnail required.
     'meta_key' => 'news_main',
     'meta_value' => true
 ]);
+
 $partners_category = get_category_by_slug('partners');
+
 $partners = get_posts([
     'category' => $partners_category->term_id,
     'meta_key' => 'show_logo',
