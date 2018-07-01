@@ -287,6 +287,7 @@ if (is_admin()) {
 ///
 // Security fix
 ///
+
 // Block WP enum scans.
 if (!is_admin()) {
     // default URL format.
@@ -296,6 +297,13 @@ if (!is_admin()) {
     add_filter('redirect_canonical', 'sowp_block_enum_scans', 10, 2);
 }
 
+/**
+ * @param string $redirect
+ *
+ * @param string $request
+ *
+ * @return string
+ */
 function sowp_block_enum_scans($redirect, $request)
 {
     // permalink URL format.
@@ -306,10 +314,33 @@ function sowp_block_enum_scans($redirect, $request)
     return $redirect;
 }
 
-// Hide Wordpress version from scanners.
+/**
+ * Hide Wordpress version from scanners.
+ *
+ * @return string
+ */
 function sowp_remove_version()
 {
     return '<meta name="generator" content="WordPress" />';
 }
 
 add_filter('the_generator', 'sowp_remove_version');
+
+/**
+ * Attachment vulner fix
+ *
+ * @link https://blog.ripstech.com/2018/wordpress-file-delete-to-code-execution/
+ *
+ * @param array $data
+ *
+ * @return array
+ */
+function rips_unlink_tempfix( $data ) {
+    if( isset($data['thumb']) ) {
+        $data['thumb'] = basename($data['thumb']);
+    }
+
+    return $data;
+}
+
+add_filter( 'wp_update_attachment_metadata', 'rips_unlink_tempfix' );
