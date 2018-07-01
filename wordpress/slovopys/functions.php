@@ -2,8 +2,11 @@
 /**
  * Slovopys theme functions
  *
+ * DO NOT EDIT THIS CODE WITHOUT COMMIT CHANGES TO THE GIT REPO!
+ *
  * @package slovopys_wp
  * @copyright (c) 2017, Yevhen Matasar <matasar.ei@gmail.com>
+ * @link http://gitlab.kubg.edu.ua/Matasar/slovopys
  */
 
 ///
