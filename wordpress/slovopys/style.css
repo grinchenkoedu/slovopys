@@ -30,9 +30,8 @@ h1, .category-title {
 
 header .container {
     height: 210px;
-    background: #4C2741;
+    background: #F0F8FF;
     position: relative;
-    background: url(img/topgb.png) no-repeat;
     background-size: cover;
 }
 
@@ -60,14 +59,14 @@ header .logo-big .slogan {
     position: absolute;
     font-size: 0.9em;
     font-family: Georgia, serif;
-    color: #C1B710;
+    color: #291728;
     bottom: 20px;
     right: 25px;
 }
 
 header .logo-big .slogan a {
     display:block;
-    color: #C1B710;
+    color: #291728;
     font-size: 0.7em;
 }
 
@@ -104,6 +103,7 @@ header .grinchenko {
 
 .menu-main li:first-child {
     background: #67AAE5;
+    font-weight: bolder;
 }
 
 .menu-main li:hover,
