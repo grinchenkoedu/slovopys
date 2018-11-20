@@ -4,7 +4,7 @@ Theme Name: СловОпис
 Description: Тема для проекту СловОпис
 Author: Yevhen Matasar
 Author URI: http://hcnotes.in.ua
-Version: 1.0
+Version: 1.2
 */
 
 body {
@@ -30,7 +30,7 @@ h1, .category-title {
 
 header .container {
     height: 210px;
-    background: #F0F8FF;
+    background: #67aae5;
     position: relative;
     background-size: cover;
 }
@@ -79,7 +79,7 @@ header .grinchenko {
 }
 
 .menu-main {
-    background: #9E9E9E;
+    background: #955a88;
     padding: 0;
     display: table;
 }
@@ -102,7 +102,7 @@ header .grinchenko {
 }
 
 .menu-main li:first-child {
-    background: #67AAE5;
+    background: #c1b711;
     font-weight: bolder;
 }
 
@@ -395,6 +395,7 @@ span.current {
 .blog {
     padding-left: 40px;
     font-size: 0.9em;
+    overflow: hidden;
 }
 
 .blog img {
@@ -986,8 +987,7 @@ a.resource-url--category {
     
     header .container { 
         height: 180px; 
-        background-image: none; 
-        background: #4C2741;
+        background-image: none;
     }
     header .logo-big { margin: 10px 115px 0 auto; }
     header .logo-big .slogan { 
