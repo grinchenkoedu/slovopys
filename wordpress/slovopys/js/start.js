@@ -1,10 +1,14 @@
 /**
  * Slovopys theme custom scripts
+ *
+ * @author Yevhen Matasar <matasar.ei@gmail.com>
  */
 
 /**
  * jQuery self-invoking wrapper
+ *
  * @param {type} $ jQuery
+ *
  * @returns {undefined}
  */
 (function($) {
@@ -64,8 +68,10 @@ $(document).ready(function() {
 
 /**
  * Footer fixer hack
+ *
  * @param string selector Footer selector
  * @param array contentSelectors
+ *
  * @returns {start_L2.FooterFixer}
  */
 var FooterFixer = function(selector, contentSelectors) {
@@ -107,6 +113,7 @@ var FooterFixer = function(selector, contentSelectors) {
 
 /**
  * Main menu js handler
+ *
  * @returns {undefined}
  */
 var initMainMenu = function() {
@@ -122,6 +129,7 @@ var initMainMenu = function() {
 
 /**
  * Scroll button handler
+ *
  * @returns {Boolean}
  */
 var initScrollTop = function() {
