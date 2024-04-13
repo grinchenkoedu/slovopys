@@ -44,7 +44,9 @@ $parent = $category->parent ? get_category($category->parent): null;
         
             <?php while (have_posts()) : the_post(); ?>
                 <article class="blog">
-                    <h1><?php the_title(); ?></h1>
+                    <?php if (!get_field('hide_title')): ?>
+                        <h1><?php the_title(); ?></h1>
+                    <?php endif; ?>
                     <?php 
                         $show_thumb = get_field('content_show_thumbnail'); 
                         $has_images = preg_match("/\<img(?!.*class=.*emoji)/", get_the_content());

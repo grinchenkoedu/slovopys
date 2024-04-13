@@ -1,14 +1,14 @@
 @charset "utf-8";
 /*
 Theme Name: СловОпис
-Description: Тема для проекту СловОпис
+Description: Шаблони сайту СловОпис
 Author: Yevhen Matasar
 Author URI: http://hcnotes.in.ua
-Version: 1.2
+Version: 1.3
 */
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Cuprum', Arial, sans-serif;
     font-weight: 300;
     font-size: 16pt;
 }
@@ -31,6 +31,7 @@ h1, .category-title {
 header .container {
     height: 210px;
     background: #67aae5;
+    background: radial-gradient(circle, #67aae5, #4c8ec2);
     position: relative;
     background-size: cover;
 }
@@ -112,7 +113,7 @@ header .grinchenko {
 }
 
 .menu-main a {
-    font-size: 0.7em;
+    font-size: 0.8em;
     line-height: 1.5em;
     color: #FFFFFF;
     display: block;
@@ -127,6 +128,89 @@ header .grinchenko {
 
 .menu-main li:hover a {
     color: #000000;
+}
+
+.row-intro {
+    color: #FFF;
+    background: #95bb46;
+    background: radial-gradient(circle at 1% 1%, #95bb46, #4c592b);
+}
+.row-intro .page-title h1 {
+    font-size: 3em;
+    color: #FFF;
+    padding: 0;
+}
+
+.col-intro {
+    padding: 25px 45px;
+}
+
+.intro-logo {
+    padding: 0 25px;
+}
+.intro-logo img {
+    width: 200px;
+}
+.intro-text {
+    padding: 15px 0;
+    font-size: 1.5em;
+    line-height: 1.2em;
+}
+.intro-btn {
+    background-color: #95bb41;
+    border: 3px solid #4b582b;
+    border-radius: 30px;
+    color: #fdf5e6;
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    min-width: 275px;
+    padding: 3px 15px 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.intro-btn:hover {
+    background-color: #4b582b;
+    color: #fdf5e6;
+    text-decoration: none;
+}
+
+.intro-image {
+    text-align: center;
+    padding-top: 40px;
+    background: radial-gradient(circle 220px at 50% 50%, #fcc018, rgba(76, 89, 43, 0));
+}
+.intro-image img {
+    width: 250px;
+}
+.intro-social {
+    position: absolute;
+    top: 65%;
+    left: 0;
+}
+.intro-social-btn {
+    display: block;
+    border-radius: 5px;
+    border: 0;
+    background-color: #FFF;
+    color: #000;
+    min-width: 200px;
+    padding: 10px 15px;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+.intro-social-btn:hover {
+    text-decoration: none;
+    background-color: #95bb41;
+    color: #FFF;
+}
+.intro-social-btn img {
+    width: 40px;
+}
+.intro-social-btn span {
+    padding: 0 5px;
 }
 
 .thumbnail-item {
@@ -794,6 +878,10 @@ a.resource-url--category {
     .breadcrumbs, .blog { padding-left: 0; }
     
     .alphabet, .alphabet ul{ padding: 0; }
+
+    .intro-image {
+        background: radial-gradient(circle 190px at 50% 50%, #fcc018, rgba(76, 89, 43, 0));
+    }
 }
 
 /* iPad */
@@ -810,14 +898,21 @@ a.resource-url--category {
     .blog-title { padding: 15px 0 10px; }
     
     header .logo-big .slogan {
-        right: -10px;
+        right: 10px;
     }
 
+    .intro-image {
+        padding: 40px 0;
+    }
+    .intro-social {
+        top: 50%;
+        left: 10%;
+    }
 }
 
 /* iPad mini and smaller */
 @media screen and (max-width: 768px) {
-    
+
     .sidenav.sidenav-md-full { padding: 0 0 0 10px; }
     .sidenav { padding: 10px 15px; }
     .sidenav:after {
@@ -849,7 +944,10 @@ a.resource-url--category {
     header .logo-big { margin: 25px 115px 0 auto; }
     header .logo-big .slogan { font-size: 0.8em; right: 30px; }
     
-    header .container { width: 100%; }
+    header .container {
+        width: 100%;
+        background: #67aae5;
+    }
     .menu-main { display: block; width: 100%; }
     .menu-main ul { display: none; }
     .menu-main .mobile-trigger {
@@ -938,6 +1036,14 @@ a.resource-url--category {
     .scrolltop { 
         right: 20px;
         bottom: 20px;
+    }
+
+    .intro-image {
+        padding: 40px 0;
+        margin: -15px;
+    }
+    .intro-social {
+        top: 50%;
     }
 }
 

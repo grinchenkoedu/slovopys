@@ -4,7 +4,7 @@
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#4C2741">
-        
+
         <?php $template_uri = get_stylesheet_directory_uri(); ?>
         <link rel="icon" href="<?php echo $template_uri ?>/img/favicon/favicon.ico" type="image/x-icon">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $template_uri; ?>/img/favicon/favicon-16x16.png">
