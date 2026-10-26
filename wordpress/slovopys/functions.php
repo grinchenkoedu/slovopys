@@ -28,7 +28,7 @@ function sowp_theme_sns()
     wp_enqueue_style('owl-carousel', "{$template_uri}/css/owl.carousel.min.css");
 
     // fonts and icons.
-    wp_enqueue_style('font-roboto', '//fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic,latin');
+    wp_enqueue_style('font-cuprum', '//fonts.googleapis.com/css2?family=Cuprum&display=swap');
 
     // custom styles.
     wp_enqueue_style('style', get_stylesheet_uri());
@@ -242,12 +242,6 @@ function sowp_print_admin_page()
                 </tr>
 
                 <tr valign="top">
-                    <th scope="row">Google+</th>
-                    <td><input type="text" size="64" name="sowp_gplus"
-                               value="<?php echo esc_attr(get_option('sowp_gplus')); ?>" placeholder="http://"/></td>
-                </tr>
-
-                <tr valign="top">
                     <th scope="row">Код в head</th>
                     <td><textarea cols="128" rows="16"
                                   name="sowp_head"><?php echo get_option('sowp_head'); ?></textarea></td>
@@ -274,7 +268,6 @@ function sowp_admin_init()
     register_setting('sowp_settings_group', 'sowp_facebook');
     register_setting('sowp_settings_group', 'sowp_youtube');
     register_setting('sowp_settings_group', 'sowp_insta');
-    register_setting('sowp_settings_group', 'sowp_gplus');
     register_setting('sowp_settings_group', 'sowp_head');
     register_setting('sowp_settings_group', 'sowp_footer');
 }
